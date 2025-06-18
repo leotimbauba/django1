@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Index - Sistema de Clientes e Produtos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+  <!-- Menu de Navegação -->
+  <header>
+        <div class="logo">
+            <img src="{% static 'images/Dockdecarga.webp' %}" alt="Logo" style="vertical-align: middle; border-radius: 50%; width: 50px; height: 50px;">
+        </div>
+        <nav>
+            <a href="{% url 'index' %}">home</a>
+            <a href="{% url 'sobre' %}">Sobre</a>
+            <a href="#">Produto</a>
+            <a href="{% url 'contato' %}">Contato</a>
+        </nav>
+    </header>
+
+  <!-- Clientes Cadastrados -->
+  <section class="clientes">
+    <h2>Lista de Clientes Cadastrados</h2>
+    {% if clientes %}
+      <p>Total de clientes: {{ clientes|length }}</p>
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>N° Nome</th>
+            <th>Endereço</th>
+            <th>Estado</th>
+            <th>Cidade</th>
+            <th>Email</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cliente in clientes %}
+          <tr>
+            <td data-label="N° Nome"><a href="{% url 'cliente' cliente.id %}">{{ cliente.id }} - {{ cliente.nome }} {{ cliente.sobrenome }}</a></td>
+            <td data-label="Endereço">{{ cliente.endereco }}</td>
+            <td data-label="Estado">{{ cliente.estado }}</td>
+            <td data-label="Cidade">{{ cliente.cidade }}</td>
+            <td data-label="Email">{{ cliente.email }}</td>
+            <td data-label="Telefone">{{ cliente.telefone }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Nenhum cliente cadastrado.</p>
+    {% endif %}
+  </section>
+
+  <!-- Produtos Cadastrados -->
+  <section class="produtos">
+    <h2>Lista de Produtos Cadastrados</h2>
+    {% if produtos %}
+      <p>Total de produtos: {{ produtos|length }}</p>
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th><a href="#">Ver</a></th>
+            <th><a href="#">ID</a></th>
+            <th><a href="#">Nome</a></th>
+            <th><a href="#">Modelo</a></th>
+            <th><a href="#">Descrição</a></th>
+            <th><a href="#">Preço</a></th>
+            <th><a href="#">Estoque</a></th>
+            <th><a href="#">Imagem</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for produto in produtos %}
+          <tr>
+            <td data-label="Ver"><a href="{% url 'produto' produto.id %}">Ver</a></td>
+            <td data-label="ID">{{ produto.id }}</td>
+            <td data-label="Nome">{{ produto.nome }}</td>
+            <td data-label="Modelo">{{ produto.modelo }}</td>
+            <td data-label="Descrição">{{ produto.descricao }}</td>
+            <td data-label="Preço">R$ {{ produto.preco }}</td>
+            <td data-label="Estoque">{{ produto.estoque }}</td>
+            <td data-label="Imagem">
+              {% if produto.imagem %}
+                <img src="{{ produto.imagem.url }}" alt="Imagem do Produto">
+              {% else %}
+                <span>Sem imagem</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Nenhum produto cadastrado.</p>
+    {% endif %}
+  </section>
+    <script defer src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

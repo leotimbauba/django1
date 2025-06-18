@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/cliente.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body style="font-family: 'Inter', sans-serif;">
+    <!---Clientes Cadastrados-->
+    <header>
+      <h2>Lista de Clientes Cadastrados</h2>
+    </header>
+    <table class="tabela-clientes">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>N° Nome</th>
+          <th>Endereço</th>
+          <th>Estado</th>
+          <th>Cidade</th>
+          <th>Email</th>
+          <th>Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="{% url 'index' %}">VOLTAR</a></td>
+          <td>
+            <a href="#">{{ cliente.id }} - {{ cliente.nome }} {{ cliente.sobrenome }}</a>
+          </td>
+          <td>{{ cliente.endereco }}</td>
+          <td>{{ cliente.estado }}</td>
+          <td>{{ cliente.cidade }}</td>
+          <td>{{ cliente.email }}</td>
+          <td>{{ cliente.telefone }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </body>
+</html>

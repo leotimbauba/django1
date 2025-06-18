@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+header {
+  background: #222;
+  color: #fff;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  margin-left: 30px;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+nav {
+  margin-left: auto;
+  margin-right: 30px;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.1em;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+main {
+  padding: 40px 30px;
+  min-height: 400px;
+  background: #f9f9f9;
+}
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+}
+.produto {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.produto img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+.produto h2 {
+  margin: 0 0 10px;
+}
+.produto p {
+  margin: 5px 0;
+}
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ccc;
+}
+h1 {
+  text-align: center;
+  color: #333;
+}
+label {
+  display: block;
+  margin-top: 15px;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+button:hover {
+  background: #0056b3;
+}
