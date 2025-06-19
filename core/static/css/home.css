@@ -74,7 +74,8 @@ section h2 {
   background-color: #e2e8f0;
 }
 
-.tabela th, .tabela td {
+.tabela th,
+.tabela td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #cbd5e1;
@@ -141,4 +142,15 @@ section h2 {
   .tabela img {
     margin-top: 10px;
   }
+}
+.rodape {
+  background-color: #1e293b;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
